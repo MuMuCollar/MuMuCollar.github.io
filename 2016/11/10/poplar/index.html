@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>poplar | 我的博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是我在codewars里面做的每日一题，记录着我从一个最低级慢慢升到高级的过程，从中可以看到很多大牛的优秀demo，我从中获得了宝贵的经验，受益匪浅。
+Quick Startquection:实现叠重功能Examples:accum(“abcd”);    // “A-Bb-Ccc-Dddd”
+accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="poplar">
+<meta property="og:url" content="http://yoursite.com/2016/11/10/poplar/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="这是我在codewars里面做的每日一题，记录着我从一个最低级慢慢升到高级的过程，从中可以看到很多大牛的优秀demo，我从中获得了宝贵的经验，受益匪浅。
+Quick Startquection:实现叠重功能Examples:accum(“abcd”);    // “A-Bb-Ccc-Dddd”
+accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
+<meta property="og:updated_time" content="2016-11-11T06:08:07.149Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="poplar">
+<meta name="twitter:description" content="这是我在codewars里面做的每日一题，记录着我从一个最低级慢慢升到高级的过程，从中可以看到很多大牛的优秀demo，我从中获得了宝贵的经验，受益匪浅。
+Quick Startquection:实现叠重功能Examples:accum(“abcd”);    // “A-Bb-Ccc-Dddd”
+accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
+  
+    <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">MuMuCollar</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/winnerweb/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">MuMuCollar</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">MuMuCollar</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-poplar" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/10/poplar/" class="article-date">
+  	<time datetime="2016-11-10T03:37:43.000Z" itemprop="datePublished">2016-11-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      poplar
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是我在<strong>codewars</strong>里面做的每日一题，记录着我从一个最低级慢慢升到高级的过程，从中可以看到很多大牛的优秀demo，我从中获得了宝贵的经验，受益匪浅。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h2 id="quection"><a href="#quection" class="headerlink" title="quection:"></a>quection:</h2><h4 id="实现叠重功能"><a href="#实现叠重功能" class="headerlink" title="实现叠重功能"></a>实现叠重功能</h4><h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h2><p>accum(“abcd”);    // “A-Bb-Ccc-Dddd”</p>
+<p>accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy”</p>
+<p>accum(“cwAt”);    // “C-Ww-Aaa-Tttt”</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><ol>
+<li>字符串大写</li>
+<li>建立新的数组， 遍历字符串，每个字符加入数组 ， 每一个大写字母后面的小写字母的个数 等于这个大写字母在字符串中的位置</li>
+<li>把数组转化成字符串，用“-”链接；</li>
+</ol>
+<h3 id="我的代码："><a href="#我的代码：" class="headerlink" title="我的代码："></a>我的代码：</h3><pre><code>function accum(s) {         
+    var result = [];   
+    var str = s.toUpperCase();
+    for(var j =0,le = str.length; j&lt;le ;j++){
+        var st = str[j];
+        var f = j;
+        while(f--){
+             st += str[j].toLowerCase();
+        }
+        result.push(st);  
+    }
+    return result.join(&apos;-&apos;)
+}
+</code></pre><h3 id="大神代码："><a href="#大神代码：" class="headerlink" title="大神代码："></a>大神代码：</h3><pre><code>function accum(s) {
+  return s.split(&apos;&apos;).map((x,index) =&gt; x.toUpperCase()+Array(index+1).join(x.toLowerCase())).join(&apos;-&apos;);
+}
+</code></pre><h3 id="积累经验："><a href="#积累经验：" class="headerlink" title="积累经验："></a>积累经验：</h3><p>map: 1. 传入的函数要有返回值</p>
+<ol>
+<li>map 方法返回的是一个新数组。</li>
+</ol>
+<p>=&gt; 箭头函数  继承上面的this 前面要加（）</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 MuMuCollar
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

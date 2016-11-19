@@ -3,28 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>first | 我的博客</title>
+  <title>all&amp;none&amp;any | 我的博客</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这是我在codewars里面做的每日一题，记录着我从一个最低级慢慢升到高级的过程，从中可以看到很多大牛的优秀demo，我从中获得了宝贵的经验，受益匪浅。
-Quick Startquection:实现叠重功能Examples:accum(“abcd”);    // “A-Bb-Ccc-Dddd”
-accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
+quection: As a part of this Kata, you need to create three functions that one needs to be able to call upon an array:
+作为这一型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first">
-<meta property="og:url" content="http://yoursite.com/2016/11/10/poplar/index.html">
+<meta property="og:title" content="all&none&any">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/all&none&any/index.html">
 <meta property="og:site_name" content="我的博客">
 <meta property="og:description" content="这是我在codewars里面做的每日一题，记录着我从一个最低级慢慢升到高级的过程，从中可以看到很多大牛的优秀demo，我从中获得了宝贵的经验，受益匪浅。
-Quick Startquection:实现叠重功能Examples:accum(“abcd”);    // “A-Bb-Ccc-Dddd”
-accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
-<meta property="og:updated_time" content="2016-11-18T09:20:32.704Z">
+quection: As a part of this Kata, you need to create three functions that one needs to be able to call upon an array:
+作为这一型">
+<meta property="og:updated_time" content="2016-11-18T09:19:47.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first">
+<meta name="twitter:title" content="all&none&any">
 <meta name="twitter:description" content="这是我在codewars里面做的每日一题，记录着我从一个最低级慢慢升到高级的过程，从中可以看到很多大牛的优秀demo，我从中获得了宝贵的经验，受益匪浅。
-Quick Startquection:实现叠重功能Examples:accum(“abcd”);    // “A-Bb-Ccc-Dddd”
-accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
+quection: As a part of this Kata, you need to create three functions that one needs to be able to call upon an array:
+作为这一型">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -170,11 +170,11 @@ accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-poplar" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-all&amp;none&amp;any" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/10/poplar/" class="article-date">
-  	<time datetime="2016-11-10T03:37:43.000Z" itemprop="datePublished">2016-11-10</time>
+      <a href="/2016/11/15/all&none&any/" class="article-date">
+  	<time datetime="2016-11-15T03:21:43.000Z" itemprop="datePublished">2016-11-15</time>
 </a>
     </div>
   
@@ -187,7 +187,7 @@ accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
         
   
     <h1 class="article-title" itemprop="name">
-      first
+      all&amp;none&amp;any
       
     </h1>
   
@@ -206,35 +206,21 @@ accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
     <div class="article-entry" itemprop="articleBody">
       
         <p>这是我在<strong>codewars</strong>里面做的每日一题，记录着我从一个最低级慢慢升到高级的过程，从中可以看到很多大牛的优秀demo，我从中获得了宝贵的经验，受益匪浅。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h2 id="quection"><a href="#quection" class="headerlink" title="quection:"></a>quection:</h2><h4 id="实现叠重功能"><a href="#实现叠重功能" class="headerlink" title="实现叠重功能"></a>实现叠重功能</h4><h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h2><p>accum(“abcd”);    // “A-Bb-Ccc-Dddd”</p>
-<p>accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy”</p>
-<p>accum(“cwAt”);    // “C-Ww-Aaa-Tttt”</p>
-<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><ol>
-<li>字符串大写</li>
-<li>建立新的数组， 遍历字符串，每个字符加入数组 ， 每一个大写字母后面的小写字母的个数 等于这个大写字母在字符串中的位置</li>
-<li>把数组转化成字符串，用“-”链接；</li>
-</ol>
-<h3 id="我的代码："><a href="#我的代码：" class="headerlink" title="我的代码："></a>我的代码：</h3><pre><code>function accum(s) {         
-    var result = [];   
-    var str = s.toUpperCase();
-    for(var j =0,le = str.length; j&lt;le ;j++){
-        var st = str[j];
-        var f = j;
-        while(f--){
-             st += str[j].toLowerCase();
-        }
-        result.push(st);  
-    }
-    return result.join(&apos;-&apos;)
-}
-</code></pre><h3 id="大神代码："><a href="#大神代码：" class="headerlink" title="大神代码："></a>大神代码：</h3><pre><code>function accum(s) {
-  return s.split(&apos;&apos;).map((x,index) =&gt; x.toUpperCase()+Array(index+1).join(x.toLowerCase())).join(&apos;-&apos;);
-}
-</code></pre><h3 id="积累经验："><a href="#积累经验：" class="headerlink" title="积累经验："></a>积累经验：</h3><p>map: 1. 传入的函数要有返回值</p>
-<ol>
-<li>map 方法返回的是一个新数组。</li>
-</ol>
-<p>=&gt; 箭头函数  继承上面的this 前面要加（）</p>
+<h2 id="quection"><a href="#quection" class="headerlink" title="quection:"></a>quection:</h2><p> As a part of this Kata, you need to create three functions that one needs to be able to call upon an array:</p>
+<h3 id="作为这一型的一部分，你需要创建三个函数，一个需要能够召唤一个数组："><a href="#作为这一型的一部分，你需要创建三个函数，一个需要能够召唤一个数组：" class="headerlink" title="作为这一型的一部分，你需要创建三个函数，一个需要能够召唤一个数组："></a>作为这一型的一部分，你需要创建三个函数，一个需要能够召唤一个数组：</h3><hr>
+<h3 id="all"><a href="#all" class="headerlink" title="all"></a>all</h3><h3 id="This-function-returns-true-only-if-the-predicate-supplied-returns-true-for-all-the-items-in-the-array"><a href="#This-function-returns-true-only-if-the-predicate-supplied-returns-true-for-all-the-items-in-the-array" class="headerlink" title="This function returns true only if the predicate supplied returns true for all the items in the array"></a>This function returns true only if the predicate supplied returns true for all the items in the array</h3><h3 id="此函数只有在数组中的所有项目提供的回报率为真时才返回真值"><a href="#此函数只有在数组中的所有项目提供的回报率为真时才返回真值" class="headerlink" title="此函数只有在数组中的所有项目提供的回报率为真时才返回真值"></a>此函数只有在数组中的所有项目提供的回报率为真时才返回真值</h3><h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h3><p> [1, 2, 3].all(isGreaterThanZero) =&gt; true</p>
+<h2 id="1-0-2-all-isGreaterThanZero-gt-false"><a href="#1-0-2-all-isGreaterThanZero-gt-false" class="headerlink" title=" [-1, 0, 2].all(isGreaterThanZero) =&gt; false"></a> [-1, 0, 2].all(isGreaterThanZero) =&gt; false</h2><h3 id="none"><a href="#none" class="headerlink" title="none"></a>none</h3><h3 id="This-function-returns-true-only-if-the-predicate-supplied-returns-false-for-all-the-items-in-the-array"><a href="#This-function-returns-true-only-if-the-predicate-supplied-returns-false-for-all-the-items-in-the-array" class="headerlink" title="This function returns true only if the predicate supplied returns false for all the items in the array"></a>This function returns true only if the predicate supplied returns false for all the items in the array</h3><h2 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples:"></a>Examples:</h2><p> [-1, 2, 3].none(isLessThanZero) =&gt; false</p>
+<h2 id="1-2-3-none-isGreaterThanZero-gt-true"><a href="#1-2-3-none-isGreaterThanZero-gt-true" class="headerlink" title=" [-1, -2, -3].none(isGreaterThanZero) =&gt; true"></a> [-1, -2, -3].none(isGreaterThanZero) =&gt; true</h2><h3 id="any"><a href="#any" class="headerlink" title="any"></a>any</h3><h3 id="This-function-returns-true-if-at-least-one-of-the-items-in-the-array-returns-true-for-the-predicate-supplied"><a href="#This-function-returns-true-if-at-least-one-of-the-items-in-the-array-returns-true-for-the-predicate-supplied" class="headerlink" title="This function returns true if at least one of the items in the array returns true for the predicate supplied"></a>This function returns true if at least one of the items in the array returns true for the predicate supplied</h3><h2 id="Examples-2"><a href="#Examples-2" class="headerlink" title="Examples:"></a>Examples:</h2><p> [-1, 2, 3].any(isGreaterThanZero) =&gt; true</p>
+<h2 id="1-2-3-any-isGreaterThanZero-gt-false"><a href="#1-2-3-any-isGreaterThanZero-gt-false" class="headerlink" title=" [-1, -2, -3].any(isGreaterThanZero) =&gt; false"></a> [-1, -2, -3].any(isGreaterThanZero) =&gt; false</h2><h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>any: 循环数组，都满足条件则为true，否则为false；<br>none：循环数组，都不满足条件则为true，否则为false；<br>any: 循环数组，有一个满足条件则为true，都不满足条件则为false；</p>
+<h3 id="固定函数："><a href="#固定函数：" class="headerlink" title="固定函数："></a>固定函数：</h3><p>function isGreaterThanZero (num) {<br>  return num &gt; 0;<br>}<br>function isLessThanZero (num) {<br>  return num &lt; 0;<br>}</p>
+<h3 id="我的代码："><a href="#我的代码：" class="headerlink" title="我的代码："></a>我的代码：</h3><p>Array.prototype.all = function (p) {<br>  for(var i =0; i&lt;this.length; i++){<br>     if(!p(this[i])){<br>        return false;<br>     }<br>  }<br>  return true;<br>};</p>
+<p>Array.prototype.none = function (p) {<br>  for(var i =0; i&lt;this.length; i++){<br>     if(p(this[i])){<br>        return false;<br>     }<br>  }<br>  return true;<br>};</p>
+<p>Array.prototype.any = function (p) {<br>  for(var i =0; i&lt;this.length; i++){<br>     if(p(this[i])){<br>        return true;<br>     }<br>  }<br>  return false;<br>};</p>
+<h3 id="大神代码："><a href="#大神代码：" class="headerlink" title="大神代码："></a>大神代码：</h3><hr>
+<p>Array.prototype.all = function (p) {<br>  return this.filter(p).length == this.length;<br>};</p>
+<p>Array.prototype.none = function (p) {<br>  return this.filter(p).length == 0;<br>};</p>
+<p>Array.prototype.any = function (p) {<br>  return this.filter(p).length &gt; 0;</p>
+<h2 id=""><a href="#" class="headerlink" title="};"></a>};</h2><h3 id="精髓："><a href="#精髓：" class="headerlink" title="精髓："></a>精髓：</h3><p><em>filter</em>: 返回满足条件的数组，不是返回布尔值；   </p>
 
       
     </div>
@@ -244,15 +230,20 @@ accum(“RqaEzty”); // “R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yy">
     
 <nav id="article-nav">
   
-    <a href="/2016/11/15/all&none&any/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/16/blog教程/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          all&amp;none&amp;any
+          git相关指南
         
       </div>
     </a>
   
+  
+    <a href="/2016/11/10/poplar/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">first</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
   
 </nav>
 

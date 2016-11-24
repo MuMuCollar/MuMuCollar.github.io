@@ -162,6 +162,536 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-express" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/24/express/" class="article-date">
+  	<time datetime="2016-11-24T13:03:23.000Z" itemprop="datePublished">2016-11-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/24/express/">
+        express
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="express"><a href="#express" class="headerlink" title="express"></a>express</h2><p>Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。</p>
+<p>使用 Express 可以快速地搭建一个完整功能的网站。</p>
+<p>Express 框架核心特性：</p>
+<p>可以设置中间件来响应 HTTP 请求。</p>
+<p>定义了路由表用于执行不同的 HTTP 请求动作。 </p>
+<p>可以通过向模板传递参数来动态渲染 HTML 页面。</p>
+<hr>
+<h3 id="安装-Express"><a href="#安装-Express" class="headerlink" title="安装 Express"></a>安装 Express</h3><p>安装 Express 并将其保存到依赖列表中：</p>
+<pre><code>$ npm install express --save
+</code></pre><p>以上命令会将 Express 框架安装在当期目录的 node_modules 目录中， node_modules 目录下会自动创建 express 目录。以下几个重要的模块是需要与 express 框架一起安装的：</p>
+<ul>
+<li><p>body-parser - node.js 中间件，用于处理 JSON, Raw, Text 和 URL 编码的数据。</p>
+</li>
+<li><p>cookie-parser - 这就是一个解析Cookie的工具。通过req.cookies可以取到传过来的cookie，并把它们转成对象。</p>
+</li>
+<li><p>multer - node.js 中间件，用于处理 enctype=”multipart/form-data”（设置表单的MIME编码）的表单数据。</p>
+<pre><code>$ npm install body-parser --save  
+$ npm install cookie-parser --save
+$ npm install multer --save
+</code></pre></li>
+</ul>
+<hr>
+<h2 id="第一个-Express-框架实例"><a href="#第一个-Express-框架实例" class="headerlink" title="第一个 Express 框架实例"></a>第一个 Express 框架实例</h2><p>接下来我们使用 Express 框架来输出 “Hello World”。</p>
+<p>以下实例中我们引入了 express 模块，并在客户端发起请求后，响应 “Hello World” 字符串。</p>
+<p>创建 express_demo.js 文件，代码如下所示：</p>
+<pre><code> //express_demo.js 文件
+ var express = require(&apos;express&apos;);
+ var app = express();
+
+ app.get(&apos;/&apos;, function (req, res) {
+   res.send(&apos;Hello World&apos;);
+ })
+
+app.listen(3000);
+</code></pre><p>访问地址为   <strong><em><a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a></em></strong></p>
+<p>##请求和响应<br>Express 应用使用回调函数的参数： request 和 response 对象来处理请求和响应的数据。 </p>
+<pre><code>app.get(&apos;/&apos;, function (req, res) {
+  // --
+})
+</code></pre><p>request 和 response 对象的具体介绍：</p>
+<p><strong>Request 对象</strong> - request 对象表示 HTTP 请求，包含了请求查询字符串，参数，内容，HTTP 头部等属性。常见属性有： </p>
+<ol>
+<li>req.app：当callback为外部文件时，用req.app访问 express的实例 </li>
+<li>req.baseUrl：获取路由当前安装的URL路径 </li>
+<li>req.body / req.cookies：获得「请求主体」/ Cookies </li>
+<li>req.fresh / req.stale：判断请求是否还「新鲜」 </li>
+<li>req.hostname / req.ip：获取主机名和IP地址 </li>
+<li>req.originalUrl：获取原始请求URL </li>
+<li>req.params：获取路由的parameters </li>
+<li>req.path：获取请求路径 </li>
+<li>req.protocol：获取协议类型 </li>
+<li>req.query：获取URL的查询参数串 </li>
+<li>req.route：获取当前匹配的路由 </li>
+<li>req.subdomains：获取子域名 </li>
+<li>req.accpets（）：检查请求的Accept头的请求类型 </li>
+<li>req.acceptsCharsets /  req.acceptsEncodings / req.acceptsLanguages </li>
+<li>req.get（）：获取指定的HTTP请求头 </li>
+<li>req.is（）：判断请求头Content-Type的MIME类型</li>
+</ol>
+<p><strong>Response 对象</strong> - response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP 响应数据。常见属性有：</p>
+<ul>
+<li>res.app：同req.app一样 </li>
+<li>res.append（）：追加指定HTTP头 </li>
+<li>res.set（）在res.append（）后将重置之前设置的头 </li>
+<li>res.cookie（name，value [，option]）：设置Cookie </li>
+<li>opition: domain / expires / httpOnly / * maxAge / path / secure / signed </li>
+<li>res.clearCookie（）：清除Cookie </li>
+<li>res.download（）：传送指定路径的文件 </li>
+<li>res.get（）：返回指定的HTTP头 </li>
+<li>res.json（）：传送JSON响应 </li>
+<li>res.jsonp（）：传送JSONP响应 </li>
+<li>res.location（）：只设置响应的Location HTTP头，不设置状态码或者close response </li>
+<li>res.redirect（）：设置响应的Location HTTP头，并且设置状态码302 </li>
+<li>res.send（）：传送HTTP响应 </li>
+<li>res.sendFile（path [，options] [，fn]）：传送指定路径的文件 -会自动根据文件extension设定Content-Type </li>
+<li>res.set（）：设置HTTP头，传入object可以一次设置多个头 </li>
+<li>res.status（）：设置HTTP状态码 </li>
+<li>res.type（）：设置Content-Type的MIME类型 </li>
+</ul>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>我们已经了解了 HTTP 请求的基本应用，而路由决定了由谁(指定脚本)去响应客户端请求。</p>
+<p>在HTTP请求中，我们可以通过路由提取出请求的URL以及GET/POST参数。</p>
+<p>接下来我们扩展 Hello World，添加一些功能来处理更多类型的 HTTP 请求。</p>
+<p>创建 express_demo2.js 文件，代码如下所示：</p>
+<pre><code>var express = require(&apos;express&apos;);
+var app = express();
+
+//  主页输出 &quot;Hello World&quot;
+app.get(&apos;/&apos;, function (req, res) {
+  console.log(&quot;主页 GET 请求&quot;);
+  res.send(&apos;Hello GET&apos;);
+})
+
+
+//  POST 请求
+app.post(&apos;/&apos;, function (req, res) {
+  console.log(&quot;主页 POST 请求&quot;);
+  res.send(&apos;Hello POST&apos;);
+})
+
+//  /del_user 页面响应
+app.get(&apos;/del_user&apos;, function (req, res) {
+   console.log(&quot;/del_user 响应 DELETE 请求&quot;);
+   res.send(&apos;删除页面&apos;);
+})
+
+//  /list_user 页面 GET 请求
+app.get(&apos;/list_user&apos;, function (req, res) {
+  console.log(&quot;/list_user GET 请求&quot;);
+  res.send(&apos;用户列表页面&apos;);
+})
+
+// 对页面 abcd, abxcd, ab123cd, 等响应 GET 请求
+app.get(&apos;/ab*cd&apos;, function(req, res) {   
+  console.log(&quot;/ab*cd GET 请求&quot;);
+  res.send(&apos;正则匹配&apos;);
+})
+
+
+app.listen(3000)
+</code></pre><p>访问地址为 <strong><em>localhost:3000</em></strong></p>
+<h2 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h2><p>Express 提供了内置的中间件 express.static 来设置静态文件如：图片， CSS, JavaScript 等。</p>
+<p>你可以使用 express.static 中间件来设置静态文件路径。例如，如果你将图片， CSS, JavaScript 文件放在 public 目录下，你可以这么写：</p>
+<pre><code>app.use(express.static(&apos;public&apos;));
+</code></pre><p>我们可以到 public/images 目录下放些图片,如下所示：</p>
+<pre><code>node_modules
+server.js
+public/
+public/images
+public/images/logo.png
+</code></pre><p>让我们再修改下 “Hello Word” 应用添加处理静态文件的功能。</p>
+<p>创建 express_demo3.js 文件，代码如下所示：</p>
+<pre><code>var express = require(&apos;express&apos;);
+var app = express();
+
+app.use(express.static(&apos;public&apos;));
+
+app.get(&apos;/&apos;, function (req, res) {
+   res.send(&apos;Hello World&apos;);
+})
+
+app.listen(3000) 
+</code></pre><p>访问地址为 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a></p>
+<h2 id="GET-方法"><a href="#GET-方法" class="headerlink" title="GET 方法"></a>GET 方法</h2><p>以下实例演示了在表单中通过 GET 方法提交两个参数，我们可以使用 server.js 文件内的 process_get 路由器来处理输入：</p>
+<p>index.htm 文件代码如下： </p>
+<pre><code>&lt;html&gt;
+&lt;body&gt;
+&lt;form action=&quot;http://127.0.0.1:8081/process_get&quot; method=&quot;GET&quot;&gt;
+First Name: &lt;input type=&quot;text&quot; name=&quot;first_name&quot;&gt;  &lt;br&gt;
+
+Last Name: &lt;input type=&quot;text&quot; name=&quot;last_name&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>server.js 文件代码如下:</p>
+<pre><code>var express = require(&apos;express&apos;);
+var app = express();
+
+app.use(express.static(&apos;public&apos;));
+
+app.get(&apos;/index.htm&apos;, function (req, res) {
+   res.sendFile( __dirname + &quot;/&quot; + &quot;index.htm&quot; );
+})
+
+app.get(&apos;/process_get&apos;, function (req, res) {
+
+   // 输出 JSON 格式
+   response = {
+       first_name:req.query.first_name,
+       last_name:req.query.last_name
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
+})
+
+app.listen(3000) 
+</code></pre><p>访问地址为 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a></p>
+<h2 id="POST-方法"><a href="#POST-方法" class="headerlink" title="POST 方法"></a>POST 方法</h2><p>以下实例演示了在表单中通过 POST 方法提交两个参数，我们可以使用 server.js 文件内的 process_post 路由器来处理输入：</p>
+<p>index.htm 文件代码修改如下： </p>
+<pre><code>&lt;html&gt;
+&lt;body&gt;
+&lt;form action=&quot;http://127.0.0.1:8081/process_post&quot; method=&quot;POST&quot;&gt;
+First Name: &lt;input type=&quot;text&quot; name=&quot;first_name&quot;&gt;  &lt;br&gt;
+
+Last Name: &lt;input type=&quot;text&quot; name=&quot;last_name&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>server.js 文件代码修改如下:</p>
+<pre><code>var express = require(&apos;express&apos;);
+var app = express();
+var bodyParser = require(&apos;body-parser&apos;);
+
+// 创建 application/x-www-form-urlencoded 编码解析
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+app.use(express.static(&apos;public&apos;));
+
+app.get(&apos;/index.htm&apos;, function (req, res) {
+   res.sendFile( __dirname + &quot;/&quot; + &quot;index.htm&quot; );
+})
+
+app.post(&apos;/process_post&apos;, urlencodedParser, function (req, res) {
+
+   // 输出 JSON 格式
+   response = {
+       first_name:req.body.first_name,
+       last_name:req.body.last_name
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
+})
+app.listen(3000) 
+</code></pre><p>访问地址为 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a></p>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>以下我们创建一个用于上传文件的表单，使用 POST 方法，表单 enctype 属性设置为 multipart/form-data。</p>
+<p>index.htm 文件代码修改如下： </p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;文件上传表单&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;文件上传：&lt;/h3&gt;
+选择一个文件上传: &lt;br /&gt;
+&lt;form action=&quot;/file_upload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+&lt;input type=&quot;file&quot; name=&quot;image&quot; size=&quot;50&quot; /&gt;
+&lt;br /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;上传文件&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>server.js 文件代码修改如下:</p>
+<pre><code>var express = require(&apos;express&apos;);
+var app = express();
+var fs = require(&quot;fs&quot;);
+
+var bodyParser = require(&apos;body-parser&apos;);
+var multer  = require(&apos;multer&apos;);
+
+app.use(express.static(&apos;public&apos;));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(multer({ dest: &apos;/tmp/&apos;}).array(&apos;image&apos;));
+
+app.get(&apos;/index.htm&apos;, function (req, res) {
+   res.sendFile( __dirname + &quot;/&quot; + &quot;index.htm&quot; );
+})
+
+app.post(&apos;/file_upload&apos;, function (req, res) {
+
+   console.log(req.files[0]);  // 上传的文件信息
+
+   var des_file = __dirname + &quot;/&quot; + req.files[0].originalname;
+   fs.readFile( req.files[0].path, function (err, data) {
+        fs.writeFile(des_file, data, function (err) {
+         if( err ){
+              console.log( err );
+         }else{
+               response = {
+                   message:&apos;File uploaded successfully&apos;, 
+                   filename:req.files[0].originalname
+              };
+          }
+          console.log( response );
+          res.end( JSON.stringify( response ) );
+       });
+   });
+})
+
+app.listen(3000) 
+</code></pre><p>访问地址为 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a></p>
+<h2 id="Cookie-管理"><a href="#Cookie-管理" class="headerlink" title="Cookie 管理"></a>Cookie 管理</h2><p>我们可以使用中间件向 Node.js 服务器发送 cookie 信息，以下代码输出了客户端发送的 cookie 信息：</p>
+<pre><code>// express_cookie.js 文件
+var express      = require(&apos;express&apos;)
+var cookieParser = require(&apos;cookie-parser&apos;)
+
+var app = express()
+app.use(cookieParser())
+
+app.get(&apos;/&apos;, function(req, res) {
+  console.log(&quot;Cookies: &quot;, req.cookies)
+})
+
+app.listen(3000)
+</code></pre><p>执行以上代码：</p>
+<pre><code>$ node express_cookie.js 
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-node" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/23/node/" class="article-date">
+  	<time datetime="2016-11-23T11:37:43.000Z" itemprop="datePublished">2016-11-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/23/node/">
+        node.js
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="何为node"><a href="#何为node" class="headerlink" title="何为node?"></a>何为node?</h2><p>简单的说就是运行在服务端的javaScript.</p>
+<ul>
+<li>Node.js 是一个基于 Chrome JavaScript 运行时建立的一个平台。</li>
+<li>Node.js 是一个事件驱动 I/O 服务器javascript环境<h2 id="学习-node-js-有什么用？"><a href="#学习-node-js-有什么用？" class="headerlink" title="学习 node.js 有什么用？"></a>学习 node.js 有什么用？</h2><h3 id="创建自己的服务"><a href="#创建自己的服务" class="headerlink" title="创建自己的服务"></a>创建自己的服务</h3></li>
+</ul>
+<h2 id="Node版本查看命令："><a href="#Node版本查看命令：" class="headerlink" title="Node版本查看命令："></a>Node版本查看命令：</h2><pre><code>$ node -v
+</code></pre><h2 id="Node-js-如何使用："><a href="#Node-js-如何使用：" class="headerlink" title="Node.js 如何使用："></a>Node.js 如何使用：</h2><ol>
+<li>新建<em>js</em>文件 – app.js</li>
+<li>里面写上  console.log(“hello world”); 保存。</li>
+<li>打开终端， 查找到保存 app.js 文件的文件夹  $cd &lt;文件夹&gt;</li>
+<li>node命令： node app.js</li>
+</ol>
+<p><strong>第一个node.js程序就完成了</strong></p>
+<p>正常的话，终端会输出 hello world。</p>
+<h2 id="交互模式"><a href="#交互模式" class="headerlink" title="交互模式"></a>交互模式</h2><h3 id="终端直接输入node就会进入命令交互模式，可以输入一条代码语句后立即执行并显示结果，例如："><a href="#终端直接输入node就会进入命令交互模式，可以输入一条代码语句后立即执行并显示结果，例如：" class="headerlink" title="终端直接输入node就会进入命令交互模式，可以输入一条代码语句后立即执行并显示结果，例如："></a>终端直接输入node就会进入命令交互模式，可以输入一条代码语句后立即执行并显示结果，例如：</h3><pre><code>$ node
+&gt; console.log(&apos;Hello World!&apos;);
+Hello World!
+</code></pre><h3 id="Node-js-REPL-交互式解释器"><a href="#Node-js-REPL-交互式解释器" class="headerlink" title="Node.js REPL(交互式解释器)"></a>Node.js REPL(交互式解释器)</h3><p>Node.js REPL(Read Eval Print Loop:交互式解释器) 表示一个电脑的环境，类似 Window 系统的终端或 Unix/Linux shell，我们可以在终端中输入命令，并接收系统的响应。<br>Node 自带了交互式解释器，可以执行以下任务：</p>
+<ul>
+<li>读取 - 读取用户输入，解析输入了Javascript 数据结构并存储在内存中。</li>
+<li>执行 - 执行输入的数据结构</li>
+<li>打印 - 输出结果</li>
+<li>循环 - 循环操作以上步骤直到用户两次按下 ctrl-c 按钮退出。<br>Node 的交互式解释器可以很好的调试 Javascript 代码。<h3 id="开始学习-REPL"><a href="#开始学习-REPL" class="headerlink" title="开始学习 REPL"></a>开始学习 REPL</h3></li>
+</ul>
+<p>我们可以输入以下命令来启动 Node 的终端：</p>
+<pre><code>$ node
+&gt; 
+</code></pre><p>这时我们就可以在 &gt; 后输入简单的表达式，并按下回车键来计算结果。<br>简单的表达式运算<br>接下来让我们在 Node.js REPL 的命令行窗口中执行简单的数学运算：</p>
+<pre><code>$ node
+&gt; 1 +4
+5
+&gt; 5 / 2
+2.5
+&gt; 3 * 6
+18
+&gt; 4 - 1
+3
+&gt; 1 + ( 2 * 3 ) - 4
+3
+&gt;
+</code></pre><h3 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h3><p>你可以将数据存储在变量中，并在你需要的使用它。<br>变量声明需要使用 var 关键字，如果没有使用 var 关键字变量会直接打印出来。使用 var 关键字的变量可以使用 console.log() 来输出变量。</p>
+<pre><code>$ node
+&gt; x = 10
+ 10
+&gt; var y = 10
+undefined
+&gt; x + y
+20
+&gt; console.log(&quot;Hello World&quot;)
+Hello World
+undefined
+&gt; console.log(&quot;www.runoob.com&quot;)
+www.runoob.com
+undefined
+</code></pre><h3 id="多行表达式"><a href="#多行表达式" class="headerlink" title="多行表达式"></a>多行表达式</h3><p>Node REPL 支持输入多行表达式，这就有点类似 JavaScript。接下来让我们来执行一个 do-while 循环：</p>
+<pre><code>$ node
+&gt; var x = 0
+undefined
+&gt; do {
+... x++;
+... console.log(&quot;x: &quot; + x);
+... } while ( x &lt; 5 );
+x: 1
+x: 2
+x: 3
+x: 4
+x: 5
+undefined
+</code></pre><p><strong>…</strong> 三个点的符号是系统自动生成的，你回车换行后即可。Node 会自动检测是否为连续的表达式。<br>下划线(<em>)变量<br>你可以使用下划线(</em>)获取表达式的运算结果：</p>
+<pre><code>$ node
+&gt; var x = 10
+undefined
+&gt; var y = 20
+undefined
+&gt; x + y
+30
+&gt; var sum = _
+undefined
+&gt; console.log(sum)
+30
+undefined
+&gt;
+</code></pre><h3 id="REPL-命令"><a href="#REPL-命令" class="headerlink" title="REPL 命令"></a>REPL 命令</h3><ul>
+<li>ctrl + c - 退出当前终端。</li>
+<li>ctrl + c 按下两次 - 退出 Node REPL。</li>
+<li>ctrl + d - 退出 Node REPL.</li>
+<li>向上/向下 键 - 查看输入的历史命令</li>
+<li>tab 键 - 列出当前命令</li>
+<li>help - 列出使用命令</li>
+<li>break - 退出多行表达式</li>
+<li>clear - 退出多行表达式</li>
+<li>save filename - 保存当前的 Node REPL 会话到指定文件</li>
+<li>load filename - 载入当前 Node REPL 会话的文件内容。</li>
+</ul>
+<h4 id="停止-REPL"><a href="#停止-REPL" class="headerlink" title="停止 REPL"></a>停止 REPL</h4><p>前面我们已经提到按下两次 ctrl + c 建就能退出 REPL:</p>
+<pre><code>$ node
+&gt;
+(^C again to quit)
+&gt;
+</code></pre><h2 id="载入模块"><a href="#载入模块" class="headerlink" title="载入模块"></a>载入模块</h2><ol>
+<li>内置模块（http模块)： var http = require(“http”);</li>
+<li>第三方模块（例如：lodash): require(“lodash”)<h2 id="导出模块"><a href="#导出模块" class="headerlink" title="导出模块"></a>导出模块</h2></li>
+</ol>
+<ul>
+<li>导出模块方法： exports</li>
+<li>当前模块的信息： module</li>
+<li>导出当前模块信息： module.exports = (信息)；</li>
+</ul>
+<p>例如：</p>
+<pre><code>//hello.js 
+function Hello() { 
+    var name; 
+    this.setName = function(thyName) { 
+        name = thyName;   
+    }; 
+    this.sayHello = function() { 
+        console.log(&apos;Hello &apos; + name); 
+    }; 
+}; 
+module.exports = Hello;
+</code></pre><h2 id="创建服务器"><a href="#创建服务器" class="headerlink" title="创建服务器"></a>创建服务器</h2><p>接下来我们使用 http.createServer() 方法创建服务器，并使用 listen 方法绑定 8888 端口。 函数通过 request, response 参数来接收和响应数据。<br>实例如下，在你项目的根目录下创建一个叫 server.js 的文件，并写入以下代码：</p>
+<pre><code>var http = require(&apos;http&apos;);
+
+http.createServer(function (request, response) {
+
+    // 发送 HTTP 头部 
+    // HTTP 状态值: 200 : OK
+    // 内容类型: text/plain
+    response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+
+    // 发送响应数据 &quot;Hello World&quot;
+    response.end(&apos;Hello World\n&apos;);
+}).listen(8888);
+
+// 终端打印如下信息
+console.log(&apos;Server running at http://127.0.0.1:8888/&apos;);
+</code></pre><p>以上代码我们完成了一个可以工作的 HTTP 服务器。<br>使用 node 命令执行以上的代码：<br>node server.js<br>Server running at <a href="http://127.0.0.1:8888/" target="_blank" rel="external">http://127.0.0.1:8888/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-blog教程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -202,6 +732,8 @@
 <li>npm install</li>
 <li>hexo server</li>
 <li>登陆 localhost4000<h2 id="github-执行指南"><a href="#github-执行指南" class="headerlink" title="github 执行指南"></a>github 执行指南</h2></li>
+</ol>
+<ul>
 <li>进入 E:</li>
 <li>新建文件夹 编辑代码</li>
 <li>cd ~/E/文件夹</li>
@@ -218,6 +750,8 @@
 <li>进入对方github 下载主题   完成修改名称 只保留主题名</li>
 <li>用编辑器打开blog里面的_config.yml文件 把theme 改成 主题名</li>
 <li>命令: hexo server <h2 id="上传域名"><a href="#上传域名" class="headerlink" title="上传域名"></a>上传域名</h2></li>
+</ul>
+<ol>
 <li>进入github 新建仓库 <github上面的用户名>.github.io</github上面的用户名></li>
 <li>复制 仓库地址</li>
 <li>在E盘 里新建一个文件夹  github</li>

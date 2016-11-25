@@ -29,7 +29,7 @@ Express 框架核心特性：
 可以通过向模板传递参数来动态渲染 HTML 页面。
 
 安">
-<meta property="og:updated_time" content="2016-11-24T13:20:04.458Z">
+<meta property="og:updated_time" content="2016-11-25T09:57:46.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="express">
 <meta name="twitter:description" content="expressExpress 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。
@@ -343,30 +343,11 @@ app.listen(3000)
 <h2 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h2><p>Express 提供了内置的中间件 express.static 来设置静态文件如：图片， CSS, JavaScript 等。</p>
 <p>你可以使用 express.static 中间件来设置静态文件路径。例如，如果你将图片， CSS, JavaScript 文件放在 public 目录下，你可以这么写：</p>
 <pre><code>app.use(express.static(&apos;public&apos;));
-</code></pre><p>我们可以到 public/images 目录下放些图片,如下所示：</p>
-<pre><code>node_modules
-server.js
-public/
-public/images
-public/images/logo.png
-</code></pre><p>让我们再修改下 “Hello Word” 应用添加处理静态文件的功能。</p>
-<p>创建 express_demo3.js 文件，代码如下所示：</p>
-<pre><code>var express = require(&apos;express&apos;);
-var app = express();
-
-app.use(express.static(&apos;public&apos;));
-
-app.get(&apos;/&apos;, function (req, res) {
-   res.send(&apos;Hello World&apos;);
-})
-
-app.listen(3000) 
-</code></pre><p>访问地址为 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a></p>
-<h2 id="GET-方法"><a href="#GET-方法" class="headerlink" title="GET 方法"></a>GET 方法</h2><p>以下实例演示了在表单中通过 GET 方法提交两个参数，我们可以使用 server.js 文件内的 process_get 路由器来处理输入：</p>
+</code></pre><h2 id="GET-方法"><a href="#GET-方法" class="headerlink" title="GET 方法"></a>GET 方法</h2><p>以下实例演示了在表单中通过 GET 方法提交两个参数.</p>
 <p>index.htm 文件代码如下： </p>
 <pre><code>&lt;html&gt;
 &lt;body&gt;
-&lt;form action=&quot;http://127.0.0.1:8081/process_get&quot; method=&quot;GET&quot;&gt;
+&lt;form action=&quot;/login/submit&quot; method=&quot;GET&quot;&gt;
 First Name: &lt;input type=&quot;text&quot; name=&quot;first_name&quot;&gt;  &lt;br&gt;
 
 Last Name: &lt;input type=&quot;text&quot; name=&quot;last_name&quot;&gt;
@@ -374,17 +355,17 @@ Last Name: &lt;input type=&quot;text&quot; name=&quot;last_name&quot;&gt;
 &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>server.js 文件代码如下:</p>
+</code></pre><p>app.js 文件代码如下:</p>
 <pre><code>var express = require(&apos;express&apos;);
 var app = express();
 
 app.use(express.static(&apos;public&apos;));
 
-app.get(&apos;/index.htm&apos;, function (req, res) {
-   res.sendFile( __dirname + &quot;/&quot; + &quot;index.htm&quot; );
+app.get(&apos;/&apos;, function (req, res) {
+   res.sendFile( __dirname + &quot;/&quot; + &quot;index.html&quot; );
 })
 
-app.get(&apos;/process_get&apos;, function (req, res) {
+app.get(&apos;/login/submit&apos;, function (req, res) {
 
    // 输出 JSON 格式
    response = {
@@ -397,11 +378,11 @@ app.get(&apos;/process_get&apos;, function (req, res) {
 
 app.listen(3000) 
 </code></pre><p>访问地址为 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a></p>
-<h2 id="POST-方法"><a href="#POST-方法" class="headerlink" title="POST 方法"></a>POST 方法</h2><p>以下实例演示了在表单中通过 POST 方法提交两个参数，我们可以使用 server.js 文件内的 process_post 路由器来处理输入：</p>
+<h2 id="POST-方法"><a href="#POST-方法" class="headerlink" title="POST 方法"></a>POST 方法</h2><p>以下实例演示了在表单中通过 POST 方法提交两个参数，我们可以使用 APP.js 文件内的 process_post 路由器来处理输入：</p>
 <p>index.htm 文件代码修改如下： </p>
 <pre><code>&lt;html&gt;
 &lt;body&gt;
-&lt;form action=&quot;http://127.0.0.1:8081/process_post&quot; method=&quot;POST&quot;&gt;
+&lt;form action=&quot;/process_post&quot; method=&quot;POST&quot;&gt;
 First Name: &lt;input type=&quot;text&quot; name=&quot;first_name&quot;&gt;  &lt;br&gt;
 
 Last Name: &lt;input type=&quot;text&quot; name=&quot;last_name&quot;&gt;
@@ -409,7 +390,7 @@ Last Name: &lt;input type=&quot;text&quot; name=&quot;last_name&quot;&gt;
 &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>server.js 文件代码修改如下:</p>
+</code></pre><p>app.js 文件代码修改如下:</p>
 <pre><code>var express = require(&apos;express&apos;);
 var app = express();
 var bodyParser = require(&apos;body-parser&apos;);
@@ -419,8 +400,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(express.static(&apos;public&apos;));
 
-app.get(&apos;/index.htm&apos;, function (req, res) {
-   res.sendFile( __dirname + &quot;/&quot; + &quot;index.htm&quot; );
+app.get(&apos;/&apos;, function (req, res) {
+   res.sendFile( __dirname + &quot;/&quot; + &quot;index.html&quot; );
 })
 
 app.post(&apos;/process_post&apos;, urlencodedParser, function (req, res) {
@@ -451,7 +432,7 @@ app.listen(3000)
 &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>server.js 文件代码修改如下:</p>
+</code></pre><p>app.js 文件代码修改如下:</p>
 <pre><code>var express = require(&apos;express&apos;);
 var app = express();
 var fs = require(&quot;fs&quot;);
@@ -463,8 +444,8 @@ app.use(express.static(&apos;public&apos;));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ dest: &apos;/tmp/&apos;}).array(&apos;image&apos;));
 
-app.get(&apos;/index.htm&apos;, function (req, res) {
-   res.sendFile( __dirname + &quot;/&quot; + &quot;index.htm&quot; );
+app.get(&apos;/&apos;, function (req, res) {
+   res.sendFile( __dirname + &quot;/&quot; + &quot;index.html&quot; );
 })
 
 app.post(&apos;/file_upload&apos;, function (req, res) {
